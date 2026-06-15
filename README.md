@@ -4,18 +4,18 @@ A simple and responsive To-Do List application built using **HTML**, **CSS**, an
 
 ## 🚀 Features
 
-* Add new tasks instantly
-* Mark tasks as completed
-* Delete tasks when no longer needed
-* Clean and responsive dark-themed UI
-* Prevents adding empty tasks
-* Smooth hover effects and modern styling
+* Add new tasks instantly.
+* Mark tasks as completed.
+* Delete tasks when no longer needed.
+* Clean and responsive dark-themed UI.
+* Prevents adding empty tasks.
+* Smooth hover effects and modern styling.
 
 ## 🛠️ Technologies Used
 
 * HTML5
 * CSS3
-* JavaScript (ES6)
+* JavaScript
 
 ## 📂 Project Structure
 
@@ -50,7 +50,7 @@ To-Do-List/
 * Edit existing tasks
 * Add task priorities
 * Add due dates
-* Filter completed and pending tasks
+* Filter completed and pending tasks.
 
 ## Screenshots
 <img width="1793" height="685" alt="image" src="https://github.com/user-attachments/assets/f68eb71a-29d3-4246-b599-b617b701b414" />
