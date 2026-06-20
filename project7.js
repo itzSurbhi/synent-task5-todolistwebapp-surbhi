@@ -1,37 +1,75 @@
-const form=document.querySelector('form');
-const allTask=document.querySelector('#allTask');
-const input=document.querySelector('input');
+const form = document.querySelector('form');
+const allTask = document.querySelector('#allTask');
+const input = document.querySelector('input');
 
-form.addEventListener('submit',(e)=>{
-    e.preventDefault();
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    const text=input.value.trim();
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
-    if(text=="")
-        return;
+function createTaskElement(taskObj, index) {
+    const parent = document.createElement('div');
 
-    const parent=document.createElement('div');
+    const task = document.createElement('span');
+    task.textContent = taskObj.text;
 
-    const task=document.createElement('span');
-    task.textContent=text;
+    if (taskObj.done) {
+        task.classList.add('done');
+    }
 
-    const deleteButton=document.createElement('button');
-    deleteButton.textContent="Delete";
+    const doneButton = document.createElement('button');
+    doneButton.textContent = "Done";
 
-    const doneButton=document.createElement('button');
-    doneButton.textContent="Done";
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Delete";
 
-    parent.append(task,doneButton,deleteButton);
-
+    parent.append(task, doneButton, deleteButton);
     allTask.append(parent);
 
-    deleteButton.addEventListener('click',()=>{
-        parent.remove();
-    })
+    doneButton.addEventListener('click', () => {
+        tasks[index].done = !tasks[index].done;
 
-    doneButton.addEventListener('click',()=>{
-        task.style.textDecoration='line-through';
-        task.style.color='grey';
-    })
+        if (tasks[index].done) {
+            task.classList.add('done');
+        } else {
+            task.classList.remove('done');
+        }
+
+        saveTasks();
+    });
+
+    deleteButton.addEventListener('click', () => {
+        tasks.splice(index, 1);
+        saveTasks();
+        renderTasks();
+    });
+}
+
+function renderTasks() {
+    allTask.innerHTML = '';
+
+    tasks.forEach((taskObj, index) => {
+        createTaskElement(taskObj, index);
+    });
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const text = input.value.trim();
+
+    if (text === '') return;
+
+    tasks.push({
+        text: text,
+        done: false
+    });
+
+    saveTasks();
+    renderTasks();
+
     form.reset();
-})
+});
+
+renderTasks();
