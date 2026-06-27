@@ -29,14 +29,6 @@ To-Do-List/
 4. Click **Done** to mark the task as completed.
 5. Click **Delete** to remove the task from the list.
 
-## 🎨 User Interface
-
-* Dark-themed modern design
-* Responsive layout
-* Interactive buttons with hover effects
-* Easy-to-read task cards
-
-
 ## 🌟 Future Enhancements
 
 * Save tasks using Local Storage
@@ -45,8 +37,5 @@ To-Do-List/
 * Add due dates
 * Filter completed and pending tasks.
 
-
 ## Screenshots
 <img width="1793" height="685" alt="image" src="https://github.com/user-attachments/assets/f68eb71a-29d3-4246-b599-b617b701b414" />
-
-
